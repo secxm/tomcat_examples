@@ -1,4 +1,4 @@
-# coding:utf-8
+#coding:GBK
 import os
 import sys
 import requests
@@ -27,8 +27,6 @@ def get_dict(filename):
         s3.append(i)
     
     return s3
-
-
 def sum_get(filename,url):
     try:
         d1=get_dict(filename)
@@ -40,12 +38,12 @@ def sum_get(filename,url):
     for u1 in range(0,len(d1)):
         u2=""
         s2=list()
-        u2=url+"\\"+d1[u1]  # 拼接请求URL
+        u2=url+"\\"+d1[u1]  # 拼接请求
         u2=u2.replace('\\','/')
         try:
             re1=get_tomcat(u2)
             re1=str(re1)
-        except:
+        except Exception:
             re1="000"
         s2.append(u2)
         s2.append(re1)
@@ -53,8 +51,9 @@ def sum_get(filename,url):
     
     return s1      
 
+
 if __name__=='__main__':
-    print "tomcat 默认文件存在路径"
+    print "tomcat 默认examples文件查找"
     try:
         filename=sys.argv[2]  #字典文件
         url=sys.argv[1]       #请求url
@@ -63,4 +62,4 @@ if __name__=='__main__':
             if(m1[i][1]=="200"):
                 print m1[i][0]+" "+m1[i][1]
     except Exception:       
-        print "程序运行错误"
+        print "程序错误"
