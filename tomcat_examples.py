@@ -29,7 +29,7 @@ def get_dict(filename):
     return s3
 
 
-def sum(filename,url):
+def sum_get(filename,url):
     try:
         d1=get_dict(filename)
     except IOError:
