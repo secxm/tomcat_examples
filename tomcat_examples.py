@@ -53,19 +53,14 @@ def sum(filename,url):
     
     return s1      
 
-
 if __name__=='__main__':
-
-    filename=sys.argv[2]  #字典文件
-    url=sys.argv[1]       #请求url
-
-    #url=r"http://127.0.0.1:8080"
-   
-
-    m1=sum(filename,url)
     print "tomcat 默认文件存在路径"
-
-    for i in range(0,len(m1)):
-        if(m1[i][1]=="200"):
-            print m1[i][0]+" "+m1[i][1]
-  
+    try:
+        filename=sys.argv[2]  #字典文件
+        url=sys.argv[1]       #请求url
+        m1=sum_get(filename,url)
+        for i in range(0,len(m1)):
+            if(m1[i][1]=="200"):
+                print m1[i][0]+" "+m1[i][1]
+    except Exception:       
+        print "程序运行错误"
